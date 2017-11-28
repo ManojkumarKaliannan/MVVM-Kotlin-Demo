@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data
+        >
+        <variable
+            name="dialogueViewModel"
+            type="com.kotlinmvvmdemo.viewmodel.DialogueViewModel"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="250dp"
+        android:minWidth="250dp"
+        tools:context="com.kotlinmvvmdemo.view.DialogueActivity"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/dialogue_txt"
+            app:visibility="@{dialogueViewModel.peopleLabel}"
+            android:text="@{dialogueViewModel.messageLabel}"
+            />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list_dialoguepeople"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:scrollbars="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:visibility="@{dialogueViewModel.peopleRecycler}"
+            />
+        <ProgressBar
+            android:id="@+id/progress_people"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            app:visibility="@{dialogueViewModel.peopleProgress}"/>
+    </RelativeLayout>
+</layout>
+
