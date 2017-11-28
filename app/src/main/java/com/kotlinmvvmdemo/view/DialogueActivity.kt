@@ -32,7 +32,6 @@ class DialogueActivity(internal var context: Context) : Dialog(context), Observe
         setContentView(fragmentMainBinding.getRoot())
         setupListPeopleView(fragmentMainBinding.listDialoguepeople)
         setupObserver(dialogueViewModel)
-
     }
 
     private fun setupObserver(observable: Observable) {
